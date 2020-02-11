@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "movies-fire-c6770": {
+      "hosting": {
+        "my-dream-app": [
+          "movies-fire-c6770"
+        ]
+      }
+    }
+  }
+}

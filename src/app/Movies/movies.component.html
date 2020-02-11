@@ -1,0 +1,7 @@
+
+
+<div class="app">
+<div class = "movies-container">
+  <mat-card *ngFor="let movie of movies | async"><h2>{{movie.Title}}</h2><p>{{movie.Director}}</p><p>{{movie.propertyId}}</p></mat-card>
+</div>
+</div>
