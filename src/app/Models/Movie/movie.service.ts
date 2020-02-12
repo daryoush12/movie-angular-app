@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Movie } from './movie.model';
-import { Observable } from 'rxjs';
+import {IMovie} from './movie.model';
+import { Observable, from } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -30,7 +31,8 @@ export class MovieService {
   
 
   createMovie(movie : Movie){
-    return this.store.collection('movies').add(movie);
+    var data = {...movie}
+    return this.store.collection<Movie>('movies').add({...movie});
   }
 
   

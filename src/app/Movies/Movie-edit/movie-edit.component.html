@@ -1,0 +1,27 @@
+<div class="form-container">
+<form (ngSubmit)="onAddItem(f)" #f="ngForm" novalidate>
+<h2>Add a new movie</h2>
+  <mat-form-field appearance="fill">
+    <mat-label>Title</mat-label>
+    <input matInput 
+    type="string"
+    id="Title"
+    class = "form-control"
+    name = "Title"
+    ngModel>
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="fill">
+     <mat-label>Director</mat-label>
+     <input matInput 
+    type="string"
+    id="Director"
+    class = "form-control"
+    name = "Director"
+    ngModel>
+  </mat-form-field>
+  <br>
+
+<button mat-raised-button type ="submit">Submit</button>
+</form>
+</div>

@@ -8,11 +8,11 @@ import {Movie} from '../../Models/Movie/movie.model';
 
 @Component({
   selector: 'movie',
-  templateUrl: './movie.component.html',
-  styleUrls: ['./movie.component.css']
+  templateUrl: './movie-detail.component.html',
+  styleUrls: ['./movie-detail.component.css']
 })
 
-export class MovieComponent {
+export class MovieDetailComponent {
   movie_id : string;
   movie : Observable<Movie>;
   title : String;
