@@ -1,0 +1,41 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+.top-menu{
+  display: none;
+}
+
+.mat-button {
+  height: 60px;
+  padding-top: 10px;
+}
+
+@media (min-width: 768px){
+  .sidenav {
+    display: none;
+  }
+
+  
+}
+
+@media (min-width: 960px){
+ 
+  .top-menu{
+    display: inline;
+    margin-left: 30px
+  }
+}

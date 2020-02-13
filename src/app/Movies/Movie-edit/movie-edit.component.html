@@ -1,4 +1,7 @@
 <div class="form-container">
+<div *ngIf="formSuccess">
+  Successfully added a new movie! 
+</div>
 <form (ngSubmit)="onAddItem(f)" #f="ngForm" novalidate>
 <h2>Add a new movie</h2>
   <mat-form-field appearance="fill">
@@ -21,6 +24,27 @@
     ngModel>
   </mat-form-field>
   <br>
+  
+ 
+        <input type="file" id ="file" (change)="uploadFile($event.target.files)">
+        <mat-icon>folder</mat-icon>
+          <mat-form-field appearance="fill">
+         <input matInput 
+    type="string"
+    id="Url"
+    class = "form-control"
+    name = "Url"
+    value="{{movieUrl | async}}"
+    ngModel>
+      </mat-form-field>
+
+        <p>{{uploadPercent |  async}}</p>
+{{movieUrl | async}}
+  
+    <br>
+    <br>
+
+   
 
 <button mat-raised-button type ="submit">Submit</button>
 </form>
