@@ -1,3 +1,19 @@
 <div>
-<h3>{{ (movie | async)?.Title }}</h3>
+
+<div class = "detail-container" *ngIf="movie | async">
+<button class = "back-button" routerLink="/movies"><mat-icon aria-hidden="false" aria-label="Example home icon">keyboard_backspace</mat-icon></button>
+<div>
+<img class = "movie-img" src ="{{(movie | async)?.ImageUrl| MovieImagePipe | async}}">
 </div>
+<div class = "movie-info"> 
+<h1>{{(movie | async)?.Title }} {{(movie | async)?.Director}}</h1>
+<mat-divider></mat-divider>
+<br>
+<p>Director : {{(movie | async)?.Director}}</p>
+
+<p>{{(movie | async)?.Description}}</p>
+</div>
+</div>
+</div>
+
+

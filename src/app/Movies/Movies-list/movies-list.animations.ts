@@ -17,11 +17,12 @@ export const MoviesListAnimations = [
         animate(100, style({ transform: 'translateX(100%)' }))
       ])
     ]),
-      trigger('hover',[
-      state('hover-up', style({transform: 'scale(1)'})),
+      trigger('fadeIn',[
+      state('in', style({opacity: 1})),
       transition('void => *', [
-        animate(100, style({transform: 'scale(1.2)'}))
-      ])
+         style({opacity: 0}),
+         animate(1000)
+      ]),
   ])
 ];
 

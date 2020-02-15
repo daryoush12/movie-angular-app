@@ -1,5 +1,8 @@
-<div class="form-container">
-<div *ngIf="formSuccess">
+
+<div class="form-container" [@flyInOut]="'in'">
+<button class = "back-button" routerLink="/movies">
+<mat-icon aria-hidden="false" aria-label="Example home icon">keyboard_backspace</mat-icon></button>
+<div *ngIf="formSuccess" routerLink="/movies">
   Successfully added a new movie! 
 </div>
 <form (ngSubmit)="onAddItem(f)" #f="ngForm" novalidate>
@@ -24,28 +27,24 @@
     ngModel>
   </mat-form-field>
   <br>
-  
- 
+        <label>Movie cover image</label>
+        <br>
+        <br>
         <input type="file" id ="file" (change)="uploadFile($event.target.files)">
-        <mat-icon>folder</mat-icon>
-          <mat-form-field appearance="fill">
-         <input matInput 
-    type="string"
-    id="Url"
+     
+        <mat-progress-bar mode="determinate"  *ngIf = "uploadPercent" value="{{uploadPercent |  async}}"></mat-progress-bar>
+    <br>
+    <br>
+      <mat-form-field class="example-full-width">
+      <mat-label>Description</mat-label>
+      <textarea matInput placeholder="Write here.." 
+        type="string"
+    id="Description"
     class = "form-control"
-    name = "Url"
-    value="{{movieUrl | async}}"
+    name = "Description"
     ngModel>
+      </textarea>
       </mat-form-field>
-
-        <p>{{uploadPercent |  async}}</p>
-{{movieUrl | async}}
-  
-    <br>
-    <br>
-
-   
-
 <button mat-raised-button type ="submit">Submit</button>
 </form>
 </div>

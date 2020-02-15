@@ -24,6 +24,10 @@
   padding-top: 10px;
 }
 
+.mat-icon {
+  margin-right: 5px;
+}
+
 @media (min-width: 768px){
   .sidenav {
     display: none;

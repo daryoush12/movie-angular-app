@@ -1,9 +1,8 @@
 <div class = "movies-container">
 
-  <mat-card *ngFor="let movie of movies | async" routerLink="/movies/{{movie.propertyId}}" [@flyInOut]="'in'">
-    <img class = "movie-img" src ="{{movie.Url}}">
-    <h2>{{movie.Title}}</h2>
-    <p>{{movie.Director}}</p>
+<mat-card *ngFor="let movie of movies | async" routerLink="/movies/{{movie.propertyId}}" [@flyInOut]="'in'">
+    <img class = "movie-img" src ="{{movie.ImageUrl| MovieImagePipe | async}}" [@fadeIn]="'in'">
+
   </mat-card>
 </div>
 

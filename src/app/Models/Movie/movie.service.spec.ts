@@ -23,7 +23,7 @@ describe('MovieService', () => {
   it('should retrieve movie by id', () => {
     let observables, proxy  = observe(service.getMovie("AArtnM6WglGA2hSUX7iA"));
     observables.name.subscribe(name => console.log(name));
-    console.log(proxy.Title);
-    expect(movi).toBe(true);
+   //console.log(proxy.Title);
+    expect(movie).toBe(true);
   });
 });

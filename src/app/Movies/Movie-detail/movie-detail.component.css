@@ -1,0 +1,35 @@
+.detail-container{
+    margin: 50px;
+    padding: 30px;
+    background-color: #ddd;
+    display: inline-flex;
+    flex: initial;
+    width: 800px;
+}
+
+.movie-info{
+    margin-left: 20px;
+    width: 100%;
+}
+
+.movie-img {
+    height: 300px;
+    width: 200px;
+}
+
+.back-button {
+    height: 35px;
+    /* width: 45px; */
+    margin-right: 20px;
+    background:none;
+    border:none;
+}
+
+@media only screen and (max-width: 960px){
+    .detail-container{
+        width: 100%;
+        height: 100vh;
+        margin: 0px;
+        padding: 10px;
+    }
+}

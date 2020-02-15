@@ -3,6 +3,8 @@ import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firest
 import { Movie } from './movie.model';
 import {IMovie} from './movie.model';
 import { Observable, from } from 'rxjs';
+import { DataStorageService } from 'src/app/shared/data-storage.service';
+
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +14,7 @@ export class MovieService {
   private itemDoc: AngularFirestoreDocument<Movie>;
   firestore : AngularFirestore;
 
-  constructor(private store: AngularFirestore ) {
+  constructor(private store: AngularFirestore) {
    }
 
   getMovies() : Observable<Movie[]>{
@@ -27,8 +29,6 @@ export class MovieService {
     return this.itemDoc.valueChanges();
 
   }
-
-  
 
   createMovie(movie : Movie){
     var data = {...movie}

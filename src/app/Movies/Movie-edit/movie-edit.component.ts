@@ -7,13 +7,15 @@ import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 import 'firebase/storage';
 import { stringify } from 'querystring';
+import { MoviesListAnimations } from '../Movies-list/movies-list.animations';
 
 
 
 @Component({
   selector: 'movie-edit',
   templateUrl: './movie-edit.component.html',
-  styleUrls: ['./movie-edit.component.css']
+  styleUrls: ['./movie-edit.component.css'],
+  animations: MoviesListAnimations
 })
 
 export class MovieEditComponent {
@@ -23,34 +25,35 @@ export class MovieEditComponent {
   movieservice : MovieService;
   movieUrl : Observable<string>;
   uploadPercent: Observable<number>;
-  test : string;
-  
+  test;
+  filename: string;
 
   constructor(private ms : MovieService, private storage : AngularFireStorage){
      this.movieservice = ms;
+   
   }
 
  onAddItem(form :NgForm){
  
-    this.test = this.movieUrl[0];
     const value = form.value;
-    console.log(this.movieUrl);
-    const newmovie = new Movie(value.Title, value.Director, this.test)
+    console.log(value.Url);
+    const newmovie = new Movie(value.Title, value.Director, this.filename, value.Description);
     this.movieservice.createMovie(newmovie);
     this.formSuccess = true;
  }
 
  uploadFile(files) {
   const file = files[0];
-  const filePath = 'movie-images';
+  this.filename = files[0].name
+
+  const filePath = 'movie-images/'+files[0].name;
   const fileRef = this.storage.ref(filePath);
   const task = this.storage.upload(filePath, file);
-  // observe percentage changes
+
   this.uploadPercent = task.percentageChanges();
-    // get notified when the download URL is available
+
   task.snapshotChanges().pipe(
-  finalize(() => this.movieUrl = fileRef.getDownloadURL() )
-     )
-    .subscribe()
+  finalize(() => this.movieUrl = fileRef.getDownloadURL()))
+  .subscribe()
 }
 }
