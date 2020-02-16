@@ -20,9 +20,7 @@ export class MovieDetailComponent {
 
   constructor(private actRoute: ActivatedRoute, private movieservice: MovieService){
     this.movie_id = this.actRoute.snapshot.params.id;
-
     this.movie = movieservice.getMovie(this.movie_id);
-    
   }
 
 }

@@ -3,8 +3,8 @@ import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firest
 import { Movie } from './movie.model';
 import {IMovie} from './movie.model';
 import { Observable, from } from 'rxjs';
-import { DataStorageService } from 'src/app/shared/data-storage.service';
-
+import { AngularFireStorage } from '@angular/fire/storage';
+import { finalize } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +14,7 @@ export class MovieService {
   private itemDoc: AngularFirestoreDocument<Movie>;
   firestore : AngularFirestore;
 
-  constructor(private store: AngularFirestore) {
+  constructor(private store: AngularFirestore, private storage : AngularFireStorage) {
    }
 
   getMovies() : Observable<Movie[]>{
@@ -34,6 +34,12 @@ export class MovieService {
     var data = {...movie}
     return this.store.collection<Movie>('movies').add({...movie});
   }
+
+  getImageUrl(name : string) : Observable<string>{
+    console.log(name);
+    const ref = this.storage.ref('movie-images/'+name);
+    return ref.getDownloadURL();
+}
 
   
 }
