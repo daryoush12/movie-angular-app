@@ -1,6 +1,5 @@
 import { Component} from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection} from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
+
 
 
 
@@ -12,11 +11,8 @@ import { Observable } from 'rxjs';
 
 export class MoviesComponent {
   title = 'Movies';
-  
 
   constructor(){
 
   }
-
- 
 }

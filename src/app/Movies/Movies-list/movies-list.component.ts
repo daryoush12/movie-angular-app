@@ -1,11 +1,9 @@
 import {Component} from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection} from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import 'firebase/firestore';
 import {MovieService } from '../../Models/Movie/movie.service';
 import {Movie} from '../../Models/Movie/movie.model';
 import { MoviesListAnimations } from './movies-list.animations';
-import { ThrowStmt } from '@angular/compiler';
 
 
 @Component({
