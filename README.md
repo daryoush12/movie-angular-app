@@ -6,4 +6,4 @@ You can access app here : https://movies-fire-c6770.firebaseapp.com/movies
 
 # Screenshots
 
-![App Screenshot](https://i.gyazo.com/807caf64dcada4e6e8bb5b2c833170ac.png)
+![App Screenshot](https://i.gyazo.com/840cf625942e81095b06c86de458094e.png)
